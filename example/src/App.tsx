@@ -1,18 +1,25 @@
 import * as React from 'react';
 
 import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'react-native-reset-css';
+import Customizer, { customizeView } from 'react-native-reset-css';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
+  Customizer.Text({
+    style: {
+      backgroundColor: 'yellow',
+    },
+  });
 
-  React.useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
+  customizeView({
+    style: {
+      backgroundColor: 'blue',
+    },
+  });
 
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <Text style={{ backgroundColor: 'green' }}>Result:</Text>
+      <Text style={{ color: 'pink' }}>Result:</Text>
     </View>
   );
 }

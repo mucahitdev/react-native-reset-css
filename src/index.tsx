@@ -1,3 +1,11 @@
-export function multiply(a: number, b: number): Promise<number> {
-  return Promise.resolve(a * b);
-}
+import { customizeView } from './customizers/view';
+import { customizeText } from './customizers/text';
+
+const Customizer = {
+  Text: customizeText,
+  View: customizeView,
+};
+
+export { customizeText, customizeView };
+
+export default Customizer;
