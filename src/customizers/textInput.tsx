@@ -1,8 +1,8 @@
 import { TextInput, type TextInputProps } from 'react-native';
 
 export const customizeTextInput = (customProps: TextInputProps) => {
-  const TextRender = (TextInput as any).render;
-  if (!TextRender) {
+  const TextInputRender = (TextInput as any).render;
+  if (!TextInputRender) {
     (TextInput as any).defaultProps = customProps;
     return;
   }
@@ -12,6 +12,6 @@ export const customizeTextInput = (customProps: TextInputProps) => {
       ...props,
       style: [customProps.style, props.style],
     };
-    return TextRender.call(this, props, ref);
+    return TextInputRender.call(this, props, ref);
   };
 };

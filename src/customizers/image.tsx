@@ -1,8 +1,8 @@
 import { Image, type ImageProps } from 'react-native';
 
 export const customizeImage = (customProps: ImageProps) => {
-  const TextRender = (Image as any).render;
-  if (!TextRender) {
+  const ImageRender = (Image as any).render;
+  if (!ImageRender) {
     (Image as any).defaultProps = customProps;
     return;
   }
@@ -12,6 +12,6 @@ export const customizeImage = (customProps: ImageProps) => {
       ...props,
       style: [customProps.style, props.style],
     };
-    return TextRender.call(this, props, ref);
+    return ImageRender.call(this, props, ref);
   };
 };
