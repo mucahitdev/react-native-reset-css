@@ -1,8 +1,8 @@
 import { Switch, type SwitchProps } from 'react-native';
 
 export const customizeTextSwitch = (customProps: SwitchProps) => {
-  const TextRender = (Switch as any).render;
-  if (!TextRender) {
+  const SwitchRender = (Switch as any).render;
+  if (!SwitchRender) {
     (Switch as any).defaultProps = customProps;
     return;
   }
@@ -12,6 +12,6 @@ export const customizeTextSwitch = (customProps: SwitchProps) => {
       ...props,
       style: [customProps.style, props.style],
     };
-    return TextRender.call(this, props, ref);
+    return SwitchRender.call(this, props, ref);
   };
 };

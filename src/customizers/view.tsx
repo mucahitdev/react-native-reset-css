@@ -1,8 +1,8 @@
 import { View, type ViewProps } from 'react-native';
 
 export const customizeView = (customProps: ViewProps) => {
-  const TextRender = (View as any).render;
-  if (!TextRender) {
+  const ViewRender = (View as any).render;
+  if (!ViewRender) {
     (View as any).defaultProps = customProps;
     return;
   }
@@ -12,6 +12,6 @@ export const customizeView = (customProps: ViewProps) => {
       ...props,
       style: [customProps.style, props.style],
     };
-    return TextRender.call(this, props, ref);
+    return ViewRender.call(this, props, ref);
   };
 };
