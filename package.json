@@ -1,6 +1,6 @@
 {
   "name": "react-native-reset-css",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Bringing the web's reset CSS experience to React Native for a consistent mobile UI",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
